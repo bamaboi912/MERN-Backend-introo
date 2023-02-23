@@ -69,3 +69,5 @@ command: npm install mongoose cors express nodemon
     "nodemon": "^2.0.20"
   }
 }
+
+6.) Creation of server file tilted "index.js" inside of server.
