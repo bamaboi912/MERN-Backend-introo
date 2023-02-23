@@ -71,3 +71,60 @@ command: npm install mongoose cors express nodemon
 }
 
 6.) Creation of server file tilted "index.js" inside of server.
+
+content for index.js
+
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+
+mongoose.set('strictQuery', true);
+
+//set up middle ware
+app.use(express.json());
+const cors = require("cors");
+
+app.use(cors());
+
+//establish communication to MongoDB atlas (database)
+
+mongoose.connect("mongodb+srv://bamaboi912:Student1234!@cluster0.lpofvla.mongodb.net/ExoticDealership?retryWrites=true&w=majority").then(() => 
+console.log("Connected to Database")).then(() =>{
+    app.listen(3001)
+}).catch((err) => console.log(err));
+
+<---------------------------------------------------------------------------------------------------------------------------------endofcode----->
+8.) Create Folder to Hold Mongoose Model(structuring of information)
+
+-Create folder titled "Model" in server folder, and then create file 
+titled as the same name as your collection. (in this case, VehicleInformation.js)
+
+content for VehicleInformation.js
+
+const mongoose = require('mongoose');
+//create schema to hold structuring of content
+const Schema = mongoose.Schema;
+
+const carShema = new Schema({
+    make_model:{
+        type: String,
+        require: true,
+    },
+    price:{
+        type: String,
+        require: true,
+    },
+    year:{
+        type: Number,
+        require: true,
+    },
+    engine:{
+        type: String,
+        require: true,
+    }
+});
+
+//Export schema to be used in other files
+modue.exports = mongoose.model("VehicleInformation", carShema);
+<-----------------------------------------------------------------------------endofcode---------------------------------->
+
