@@ -22,4 +22,4 @@ const carShema = new Schema({
 });
 
 //Export schema to be used in other files
-modue.exports = mongoose.model("VehicleInformation", carShema);
+module.exports = mongoose.model("VehicleInformation", carShema);

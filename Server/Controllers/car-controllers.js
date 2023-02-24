@@ -42,7 +42,7 @@ const addCar = async (req,res,next) =>{
             make_model,
             price,
             year,
-            engine,
+            engine
         });
         await vehicle.save();
     }
